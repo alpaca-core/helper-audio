@@ -23,6 +23,6 @@ add_doctest_test(ac-audio
     SOURCES
         t-ac-audio.cpp
     LIBRARIES
-        ac::audio
+        ac-dev::audio
         ac-audio-test-data
 )

@@ -4,7 +4,7 @@
 include(icm_add_lib)
 
 icm_add_lib(ac-audio AC_AUDIO)
-add_library(ac::audio ALIAS ac-audio)
+add_library(ac-dev::audio ALIAS ac-audio)
 
 if(NOT TARGET dr_libs)
     CPMAddPackage(

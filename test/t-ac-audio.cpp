@@ -8,7 +8,7 @@
 const char* AudioFile = AC_AUDIO_TEST_FILES_DIR "/prentice-hall.wav";
 const char* AudioFileSmall = AC_AUDIO_TEST_FILES_DIR "/yes.wav";
 
-TEST_CASE("core") {
+TEST_CASE("load and convert") {
     // load audio f32
     auto dataf32 = ac::audio::loadWavF32Mono(AudioFileSmall);
     CHECK(dataf32.size() == 9984);
@@ -30,8 +30,9 @@ TEST_CASE("core") {
     for (size_t i = 0; i < convertedf32.size(); i++) {
         CHECK(convertedf32[i] == doctest::Approx(dataf32[i]).epsilon(0.1));
     }
+}
 
-    // save wav
+TEST_CASE("save") {
     ac::audio::WavWriter writer;
     CHECK(writer.open("test.wav", 16000, 16, 1));
 
